@@ -1,32 +1,27 @@
-# Astro Starter Kit: Basics
+# Game Configurator for Cloudflare Deployment
 
-```sh
-npm create astro@latest -- --template basics
-```
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+This Astro project is configured for deployment to Cloudflare Pages with dynamic routes.
 
 ## 🚀 Project Structure
 
-Inside of your Astro project, you'll see the following folders and files:
+The project uses dynamic routing for game configurations:
 
 ```text
 /
 ├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
+├── src/
+│   ├── components/
+│   ├── layouts/
+│   └── pages/
+│       ├── index.astro
+│       ├── plans.astro
+│       └── game/
+│           └── [gamename]/
+│               ├── index.astro
+│               └── [plan]/
+│                   └── index.astro
 └── package.json
 ```
-
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
 
 ## 🧞 Commands
 
@@ -41,7 +36,25 @@ All commands are run from the root of the project, from a terminal:
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
 
-## 👀 Want to learn more?
+## ☁️ Deploying to Cloudflare Pages
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
-# aleforge
+This project is configured for deployment to Cloudflare Pages:
+
+1. Build the project: `npm run build`
+2. The build will generate all static assets in the `dist/` directory
+3. Dynamic routes are configured to run as serverless functions on Cloudflare
+4. The `_routes.json` file is automatically generated to control which routes use serverless functions
+
+### Cloudflare Pages Settings
+
+- Build command: `npm run build`
+- Build output directory: `dist`
+
+## 🔄 Dynamic Routes
+
+The project uses the following dynamic routes:
+
+- `/game/[gamename]` - Shows plans for a specific game
+- `/game/[gamename]/[plan]` - Shows configuration for a specific game and plan
+
+These routes are configured to run as serverless functions on Cloudflare Pages.
