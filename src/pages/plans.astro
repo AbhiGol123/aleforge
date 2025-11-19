@@ -1,0 +1,24 @@
+---
+import GameConfigurator from "../components/GameConfigurator";
+
+export const prerender = false;
+
+// Extract query parameters from the request URL
+const url = new URL(Astro.request.url);
+const gamename = url.searchParams.get('gamename') || '';
+const plan = url.searchParams.get('plan') || '';
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Configure Server - Game Server Hosting</title>
+  </head>
+  <body class="min-h-screen bg-[#0b1220] text-white">
+    <main class="mx-auto max-w-7xl p-6">
+      <a href="/" class="text-sm text-white/60 hover:text-white/90">← All Games</a>
+      <GameConfigurator client:load initialGameName={gamename} initialPlan={plan} />
+    </main>
+  </body>
+</html>
