@@ -10,16 +10,7 @@ import { corsPlugin } from './src/lib/corsPlugin.js';
 export default defineConfig({
   integrations: [react(), tailwind()],
   output: "static",
-  adapter: cloudflare({
-    routes: {
-      extend: {
-        include: [
-          { pattern: '/game/*' },
-          { pattern: '/game/*/*' }
-        ]
-      }
-    }
-  }),
+  adapter: cloudflare(),
   vite: {
     plugins: [corsPlugin()]
   }
