@@ -359,7 +359,7 @@ export default function GameConfigurator({
     );
 
   return (
-    <div className="min-h-screen py-12 px-4 md:px-12 from-[#07101a] to-[#0b1220] text-white">
+    <div className="min-h-screen py-12 px-1 md:px-12 from-[#07101a] to-[#0b1220] text-white">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
