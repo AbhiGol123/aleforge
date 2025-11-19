@@ -33,7 +33,7 @@ const plans: Plan[] = [
     backups: "1 Cloud Backups",
     memory: "2 GB Memory",
     databases: "0 Databases",
-    icon: "⬛",
+    icon: "🟩",
     description: "Stronger hosting for active communities.",
   },
   {
@@ -80,9 +80,8 @@ const plans: Plan[] = [
 const TabButton: React.FC<{ active: boolean; onClick: () => void; children: React.ReactNode; }> = ({ active, onClick, children }) => (
   <button
     onClick={onClick}
-    className={`px-4 py-2 rounded-full transition ${
-      active ? "bg-gradient-to-r from-blue-500 to-cyan-400 text-white shadow-lg" : "bg-white/0 text-white/80"
-    }`}
+    className={`px-4 py-2 rounded-full transition ${active ? "bg-gradient-to-r from-blue-500 to-cyan-400 text-white shadow-lg" : "bg-white/0 text-white/80"
+      }`}
   >
     {children}
   </button>
@@ -122,13 +121,13 @@ export default function PlansGrid({ initialGameName }: { initialGameName?: strin
           >
             {filtered.map((p) => (
               <a
-  key={p.id}
-  href={`/plans?gamename=${encodeURIComponent(gameName)}&plan=${encodeURIComponent(tab)}`}
-  className="w-full max-w-[360px]"
->
-              <article
                 key={p.id}
-                className="
+                href={`/plans?gamename=${encodeURIComponent(gameName)}&plan=${encodeURIComponent(tab)}`}
+                className="w-full max-w-[360px]"
+              >
+                <article
+                  key={p.id}
+                  className="
                   bg-[#0f131b]
                   rounded-2xl
                   w-full max-w-[360px]
@@ -139,65 +138,66 @@ export default function PlansGrid({ initialGameName }: { initialGameName?: strin
                   shadow-[0_8px_30px_rgba(2,6,23,0.6)]
                   transition-transform transform hover:-translate-y-1
                 "
-              >
-                {/* Icon (emoji fallback) */}
-                <div className="w-full flex justify-center">
-                  <div className="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center text-2xl sm:text-3xl select-none">
-                    {p.icon}
-                  </div>
-                </div>
-
-                {/* Title */}
-                <h3 className="text-center text-lg sm:text-xl font-bold text-white mt-3">{p.name}</h3>
-
-                {/* Subtitle */}
-                <p className="text-center text-xs sm:text-sm text-white/60 mt-1 leading-snug">{`"${p.description}"`}</p>
-
-                {/* Features */}
-                <div className="mt-4 flex flex-col items-center text-[10px] sm:text-xs text-white/85 px-1">
-                  <div className="flex flex-col sm:flex-row gap-2 sm:gap-6">
-                    <div className="flex items-center gap-2">
-                      <span className="w-2 h-2 bg-cyan-400 rounded-full" />
-                      <span className="text-xs sm:text-sm">{p.storage}</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <span className="w-2 h-2 bg-cyan-400 rounded-full" />
-                      <span className="text-xs sm:text-sm">{p.cpuCores}</span>
-                    </div>
-                  </div>
-
-                  <div className="flex flex-col sm:flex-row gap-2 sm:gap-6 mt-2">
-                    <div className="flex items-center gap-2">
-                      <span className="w-2 h-2 bg-cyan-400 rounded-full" />
-                      <span className="text-xs sm:text-sm">{p.backups}</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <span className="w-2 h-2 bg-cyan-400 rounded-full" />
-                      <span className="text-xs sm:text-sm">{p.memory}</span>
-                    </div>
-                  </div>
-
-                  <div className="flex flex-col sm:flex-row gap-2 sm:gap-6 mt-2">
-                    <div className="flex items-center gap-2">
-                      <span className="w-2 h-2 bg-cyan-400 rounded-full" />
-                      <span className="text-xs sm:text-sm">{p.databases}</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Price */}
-                <div
-                  className="
-                    w-full mt-6 py-3 rounded-xl bg-gradient-to-b from-[#242c3a] to-[#1a212e]
-                    border border-white/10 text-center text-white font-semibold text-lg sm:text-xl shadow-inner
-                  "
                 >
-                  ${p.priceMonthly.toFixed(2)}
-                  <span className="text-xs sm:text-sm text-white/50 ml-1">/month</span>
-                </div>
+                  {/* Icon (emoji fallback) */}
+                  <div className="w-full flex justify-center">
+                    <div className="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center text-2xl sm:text-3xl select-none">
+                      {p.icon}
+                    </div>
+                  </div>
 
-                <div className="mt-2 text-center text-xs sm:text-sm text-white/50">Save 20% with annual billing</div>
-              </article>
+                  {/* Title */}
+                  <h3 className="text-center text-lg sm:text-xl font-bold text-white mt-3">{p.name}</h3>
+
+                  {/* Subtitle */}
+                  <p className="text-center text-xs sm:text-sm text-white/60 mt-1 leading-snug">{`"${p.description}"`}</p>
+
+                  {/* Features */}
+                  <div className="mt-4 flex flex-col items-center text-[10px] sm:text-xs text-white/85 px-1">
+                    <div className="flex flex-col sm:flex-row gap-2 sm:gap-6">
+                      <div className="flex items-center gap-2">
+                        <span className="w-2 h-2 bg-cyan-400 rounded-full" />
+                        <span className="text-xs sm:text-sm">{p.storage}</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <span className="w-2 h-2 bg-cyan-400 rounded-full" />
+                        <span className="text-xs sm:text-sm">{p.cpuCores}</span>
+                      </div>
+                    </div>
+
+                    <div className="flex flex-col sm:flex-row gap-2 sm:gap-6 mt-2">
+                      <div className="flex items-center gap-2">
+                        <span className="w-2 h-2 bg-cyan-400 rounded-full" />
+                        <span className="text-xs sm:text-sm">{p.backups}</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <span className="w-2 h-2 bg-cyan-400 rounded-full" />
+                        <span className="text-xs sm:text-sm">{p.memory}</span>
+                      </div>
+                    </div>
+
+                    <div className="flex flex-col sm:flex-row gap-2 sm:gap-6 mt-2">
+                      <div className="flex items-center gap-2">
+                        <span className="w-2 h-2 bg-cyan-400 rounded-full" />
+                        <span className="text-xs sm:text-sm">{p.databases}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Price */}
+                  <div
+                    className="
+                    w-full mt-6 py-3 rounded-xl bg-gradient-to-r from-blue-500 to-cyan-400
+                    border border-white/30 text-center text-white font-semibold text-lg sm:text-xl
+                    shadow-lg
+                  "
+                  >
+                    ${p.priceMonthly.toFixed(2)}
+                    <span className="text-xs sm:text-sm text-white/80 ml-1">/month</span>
+                  </div>
+
+                  <div className="mt-2 text-center text-xs sm:text-sm text-white/50">Save 20% with annual billing</div>
+                </article>
               </a>
             ))}
           </div>
