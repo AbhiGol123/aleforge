@@ -12,7 +12,7 @@ export default defineConfig({
   integrations: [react(), tailwind()],
   output: "server",
   //adapter: cloudflare(),
-  //adapter: node({ mode: 'standalone' }),
+  adapter: node({ mode: 'standalone' }),
   // server: {
   //   host: true
   // },
