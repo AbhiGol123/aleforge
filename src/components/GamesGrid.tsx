@@ -105,9 +105,9 @@ export default function GamesGrid() {
                         value={q}
                         onChange={(e) => setQ(e.target.value)}
                     />
-                    <button className="absolute right-3 top-1/2 transform -translate-y-1/2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl px-6 py-2 transition-colors">
+                    {/* <button className="absolute right-3 top-1/2 transform -translate-y-1/2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl px-6 py-2 transition-colors">
                         Search
-                    </button>
+                    </button> */}
                 </div>
             </div>
 
